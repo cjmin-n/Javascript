@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>03. addEventListener</h1>
+
+    <pre>
+        addEventListener 메서드를 사용하여 이벤트를 등록할 수 있다..
+
+        addEventListener("eventType", function)
+        첫 번째 매개변수에는 이벤트 타입,
+        두 번째 매개변수에는 이벤트 핸들러를 전달한다..
+
+        동일한 html 요소에서 발생한 동일한 이벤트에 대해
+        addEventListener 메소드 방식으로 하나 이상의 이벤트 핸들러를
+        등록할 수 있으며, 이 때 이벤트 핸들러는 등록된 순서대로 호출된다..
+    </pre>
+
+    <div onclick="alert('버블링')"> <!-- 버블링 : 상위로 이벤트가 전파됨 - document까지 감 -->
+        <button id="btn">클릭해보세요</button>
+    </div>
+
+    <script>
+        const $button = document.getElementById("btn");
+
+        $button.addEventListener('click', function(){
+            alert("클릭");
+        });
+
+        const handleMouseover = () => console.log("버튼에 마우스 올림");
+        // 동일한 이벤트 핸들러를 등록하면 하나의 핸들러만 등록된다.
+        $button.addEventListener('mouseover', handleMouseover);
+        $button.addEventListener('mouseover', function(){console.log("1")});
+    </script>
+</body>
+</html>

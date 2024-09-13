@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 
+        버튼 3개를 만들어서
+        1번을 누르면 안녕하세요가 빨간색으로
+        2번을 누르면 안녕하세요가 hi로
+        3번을 누르면 hi 라는 alert 출력
+    -->
+    <h1 id="message">안녕하세요</h1>
+
+    <button class="btn btn1" onclick="color()">클릭1</button>
+    <button class="btn btn2">클릭2</button>
+    <button class="btn btn3">클릭3</button>
+
+    <script>
+        const $msg = document.querySelector('#message');
+
+        function color(){    
+            $msg.style.color = "red";
+        }
+
+        const $btn2 = document.querySelector('.btn2');
+        $btn2.onclick = function(){            
+            $msg.textContent = "hi";
+        };
+
+        const $btn3 = document.querySelector('.btn3');
+        $btn3.addEventListener("click", function(){
+            alert("hi");
+        });
+
+
+
+    </script>
+</body>
+</html>

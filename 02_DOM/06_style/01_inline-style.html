@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>01. inline style</h1>
+    <pre>
+        Element..style 프로퍼티는 setter 와 getter 가 모두 존재하는 
+        접근자 프로퍼티로 요소 노드의 인라인 스타일을 취득하거나
+        추가 또는 변경한다..
+    </pre>
+
+    <div>area</div>
+    <input type="number" onchange="test()"/>
+
+    <script>
+        const $area = document.querySelector("div");
+        $area.style.width = "100px";
+        $area.style.height = "100px";
+        $area.style.backgroundColor = "gray";
+
+        const $input1 = document.getElementsByTagName("input");
+        console.log($input1[0]);
+
+        function test(){
+            const $input = document.querySelector("input");
+            $area.style.width = $input.value+"px";
+        }
+    </script>
+</body>
+</html>

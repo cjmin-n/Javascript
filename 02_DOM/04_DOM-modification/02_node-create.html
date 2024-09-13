@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>02. 노드 생성과 추가</h1>
+
+    <pre>
+        document.createElement(tagname) :
+        인수로 전달받은 태그 이름에 해당하는 요소 노드를 생성하여 반환
+
+        documnet.createTextNode(text) :
+        인수로 전달받은 텍스트 값으로 텍스트 노드를 생성하여 반환
+
+        node.appenChild(childNode) : 
+        인수로 전달받은 노드를 appenChild 메소드를 호출한
+        노드의 마지막 자식 노드로 추가
+    </pre>
+
+    <ul id="drink">
+        <li>커피</li>
+    </ul>
+
+    <script>
+        const $drink = document.getElementById("drink");
+        const $li = document.createElement("li");
+        $li.textContent = "콜라";
+        $drink.appendChild($li);
+        // ex 고객이 선택한 정보를 리스트에 추가하는 행위 등을 할 수 있다.
+        
+    </script>
+
+
+    <h3>복수의 노드 생성과 추가</h3>
+    <ul id="food">
+        <li>김치찌개</li>
+    </ul>
+
+    <script>
+        const $food = document.getElementById("food");
+
+        const $fragment = document.createDocumentFragment();
+        // fragment : 가상의 돔
+
+
+        ["된장찌개", "고등어구이", "제육볶음"].forEach(menu => {
+            const $li = document.createElement("li");
+            $li.textContent = menu;
+            $fragment.appendChild($li);
+        });
+
+        $food.appendChild($fragment);
+        // 렌더링이 한번만 일어나기 때문에 성능적으로 향상된다.
+        
+
+    </script>
+
+</body>
+</html>

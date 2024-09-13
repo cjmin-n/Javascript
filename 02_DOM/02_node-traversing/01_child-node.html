@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 
+        노드
+        DOM 에서 문서 구조의 기본단위를 나타낸다
+        요소 노드 - HTML 태그들
+        속성 노드 - HTML 요소의 속성들
+        텍스트 노드 - HTML 요소 내의 실제 텍스트 내용
+        주석 노드 - HTML 주석
+     -->
+
+     <h1>01. 자식 노드 탐색</h1>
+     <h3>노드 탐색</h3>
+     <p>
+        요소 노드 취득 후 취득 요소 기점으로 dom 트리의 노드를 옮겨 다니며 <br>
+        부모, 형제, 자식 노드 등을 탐색해야 할 때가 있다. <br>
+        DOM 트리 상의 노드를 탐색할 수 있도록 <br>
+        node, Element 는 트리 탐색 프로퍼티를 제공한다..
+    </p>
+
+    <h3>자식 노드 탐색</h3>
+    <ol id="node">
+        <!-- // 공백 문자가 자식노드에 포함 -->
+        <li>
+            node.childNodes : 
+            자식 노드를 탐색하여 nodeList 에 담아 반환
+        </li>
+        <li>
+            node.firstChild :
+            첫 번째 자식 노드
+        </li>
+        <li>
+            node.lastChild :
+            마지막 자식 노드
+        </li>
+    </ol>
+    <ol id="node2"><li>
+            node.childNodes : 
+            자식 노드를 탐색하여 nodeList 에 담아 반환
+        </li><li>
+            node.firstChild :
+            첫 번째 자식 노드
+        </li><li>
+            node.lastChild :
+            마지막 자식 노드
+        </li></ol>
+    
+    <ol id="element">
+        
+        <li>
+            element.children : 
+            자식 노드 중 요소 노드만 탐색하여 htmlCollection에 담아 반환
+            
+        </li>
+        <li>
+            element.firstElementChild :
+            첫 번째 자식 요소 노드 반환
+        </li>
+        <li>
+            element.lastElementChild :
+            마지막 자식 요소 노드 반환
+        </li>
+    </ol>
+
+    <script>
+
+        const $node = document.getElementById("node");
+        const $node2 = document.getElementById("node2"); 
+
+        console.log($node.childNodes);  // NodeList(7) [text, li, text, li, text, li, text]
+        console.log($node2.childNodes); // NodeList(3) [li, li, li]
+
+    
+        console.log($node.firstChild); // #text
+        console.log($node.lastChild); // #text
+
+
+
+        const $element = document.getElementById("element");
+        console.log($element.children); // HTML Collection (3) [li, li, li]
+        console.log($element.firstElementChild); // <li>...</li>
+        console.log($element.lastElementChild); // <li>...</li>
+        
+    </script>
+</body>
+</html>
